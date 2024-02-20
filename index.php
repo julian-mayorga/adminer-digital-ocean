@@ -1,14 +1,32 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
 
-use Cowsayphp\Farm;
+function adminer_object()
+{
+	// required to run any plugin
+	include_once "./plugins/plugin.php";
 
-header('Content-Type: text/plain');
+	// autoloader
+	foreach (glob("plugins/*.php") as $filename) {
+		include_once "./$filename";
+	}
 
-$text = "Set a message by adding ?message=<message here> to the URL";
-if(isset($_GET['message']) && $_GET['message'] != '') {
-	$text = htmlspecialchars($_GET['message']);
+	// enable extra drivers just by including them
+	//~ include "./plugins/drivers/simpledb.php";
+
+	$plugins = array(
+		// specify enabled plugins here
+		new AdminerFrames()
+	);
+
+	/* It is possible to combine customization and plugins:
+				class AdminerCustomization extends AdminerPlugin {
+				}
+				return new AdminerCustomization($plugins);
+				*/
+
+	return new AdminerPlugin($plugins);
 }
 
-$cow = Farm::create(\Cowsayphp\Farm\Cow::class);
-echo $cow->say($text);
+// include original Adminer or Adminer Editor
+include "./adminer.php";
+?>

@@ -1,0 +1,490 @@
+/*
+Hasura Adminer Theme
+for Hasura Console
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;&display=swap');
+/* @import url('https://fonts.googleapis.com/icon?family=Material+Icons'); */
+
+/* Base */
+html *,
+body * {
+  color: #0f172a;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+/* html *, body *, #breadcrumb{
+  background-color : #f8fafc;
+  background: #f8fafc;
+} */
+
+a,
+a:visited {
+  color: #2563eb;
+}
+a:hover,
+a:visited:hover {
+  color: #1e3a8a !important;
+  text-decoration: none !important;
+}
+.links a {
+  margin: 0;
+}
+
+input:not(.icon),
+select,
+a.loadmore,
+a[href='#import'] {
+  height: 32px;
+  padding: 0 0.5rem;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+input[type='checkbox']{
+  box-shadow: none;
+  height: fit-content;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+a.loadmore,
+a[href='#import'] {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+pre[contenteditable] {
+  padding: 0 0.5rem;
+  background: #fff;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+input:hover,
+select:hover,
+pre[contenteditable]:hover,
+a.loadmore:hover {
+  border: 1px solid #94a3b8;
+}
+input:focus,
+select:focus,
+pre[contenteditable]:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  border-color: #2563eb !important;
+}
+
+/* Submit buttons */
+input[type='submit'],
+p.links > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;
+  text-transform: capitalize;
+  cursor: pointer;
+  height: 32px;
+  font-weight: 600;
+  background: #fefefe;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  color: #0f172a;
+}
+input[type='submit']:hover,
+p.links > a:hover {
+  color: #0f172a;
+  border: 1px solid #94a3b8;
+}
+
+/* html *, body *, #breadcrumb{
+  background: none;
+} */
+
+/* >>> Page Layout */
+html {
+  background: #f8fafc;
+}
+body {
+  width: 100%;
+}
+#menu {
+  position: fixed;
+  width: 18rem;
+  margin: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  z-index:100;
+}
+#content {
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 0;
+  padding: 64px 1rem 124px;
+  margin-left: 18rem;
+  min-height: 100vh;
+}
+div#content:has(p.links){
+  padding: 106px 1rem 164px;
+}
+#breadcrumb {
+  margin: 0;
+  padding: 0;
+}
+
+/* Menu Area */
+#menu {
+  border-right: 1px solid #cbd5e1;
+}
+#menu p,
+#logins,
+#tables {
+  border-bottom: 1px solid #cbd5e1;
+}
+p#dbs > input,
+p#dbs > select {
+  margin-top: 2px;
+  width: 100%;
+}
+p#dbs > select[name='db'] {
+  margin-bottom: 8px;
+}
+/* Hide select text for each menu row and extend hitpoint */
+ul > li > a[title='Select data'] {
+  display: none;
+}
+ul > li > a[title='Show structure'] {
+  width: 100%;;
+}
+
+
+/* Menu List */
+#menu > ul#tables > li {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  position: relative;
+  padding: 0px 8px;
+  margin-bottom: 2px;
+  border-radius: 4px;
+}
+#menu > ul#tables > li > a {
+  color: #0f172a;
+  text-decoration: none;
+  background: none;
+}
+#menu > ul#tables > li > a.select {
+  position: absolute;
+  right: 6px;
+}
+#menu > ul#tables > li:hover {
+  background: #f1f5f9;
+}
+#menu > ul#tables > li:has(a.active) {
+  background: #e2e8f0;
+}
+
+/* Menu Links */
+#menu > p.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4px;
+}
+#menu > p.links > a {
+  display: flex;
+  justify-self: start;
+  color: #0f172a !important;
+  font-weight: 400;
+  text-decoration: none;
+  height: 32px;
+  padding: 0px 8px;
+  margin-bottom: 2px;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+#menu > p.links > a.active {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+#menu > p.links > a:hover {
+  color: #0f172a !important;
+}
+#menu > p.links > a:hover {
+  background: #f1f5f9;
+}
+
+/* Content */
+p.links {
+  display: flex;
+  margin: 0;
+}
+#content > #ajaxstatus + p.links {
+  /* Fixed: for scrollable areas */
+  position: fixed;
+  top:62px;
+  z-index: 1;
+  width: calc(100% - 20.02rem);
+  background: #f8fafc;
+  /* --- */
+  border-bottom: 1px solid #cbd5e1;
+  margin-top: -1rem;
+  margin-right: -1rem;
+  margin-left: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 24px;
+}
+#content > #ajaxstatus + p.links > a {
+  background: transparent;
+  border: 0;
+  margin-right: 4px;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: -1px;
+}
+#content > #ajaxstatus + p.links > a.active {
+  color: #2563eb;
+  border-bottom: 3px solid #2563eb;
+}
+
+#content > h2 {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  width: calc(100% - 20.02rem);
+  padding: 0.8rem 1rem;
+  margin-left: -1rem;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #cbd5e1;
+  text-transform: capitalize;
+  background: #fefefe;
+  z-index: 1;
+  border-left: 1px solid #cbd5e1;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+#content > h3 {
+  margin: 0;
+  margin-top: 24px;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 12px;
+  color: #64748b;
+}
+fieldset > div {
+  display: flex;
+  align-items: center;
+}
+fieldset > div > input,
+#fieldset-export > select {
+  margin-right: 4px;
+}
+fieldset > div > input:last-of-type {
+  margin-right: 0px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 20.02rem);
+  background: #fefefe;
+  border-top: 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 0.8rem 1rem;
+  box-shadow: inset 0 1px 0 0 #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+/* Data tables */
+table {
+  margin: 0;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+table > body > td > a:hover,
+table > body > th > a:hover {
+  color: #2563eb;
+}
+table > body > td > a:hover,
+table > body > th > a:hover {
+  color: #1e3a8a;
+}
+
+table > tbody > tr > td,
+table > tbody > tr > th,
+table > thead > tr > td,
+table > thead > tr > th {
+  border: 0;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+  position: sticky;
+  top: 44px;
+  text-align: left;
+  padding: 6px 8px;
+  font-weight: 600;
+  background: #f1f5f9;
+  box-shadow: inset 0 -1px 0 0 #cbd5e1;
+}
+#content:has(.links) div table th,
+#content:has(.links) div table td {
+  top: 76px;
+}
+
+table > tbody > tr.odd > td,
+table > tbody > tr.odd > th {
+  background: #f8fafc;
+}
+table > tbody > tr > td,
+table > tbody > tr > th {
+  background: #fefefe;
+  padding: 6px 8px;
+}
+table > tbody > tr > td,
+table > tbody > tr > th {
+  border-bottom: 1px solid #cbd5e1;
+}
+table > tbody > tr:hover > td,
+table > tbody > tr:hover > th {
+  background: #dbeafe;
+}
+
+table > tr.odd > td,
+table > tr.odd > th {
+  background: #f8fafc;
+}
+table > tr > td,
+table > tr > th {
+  background: #fefefe;
+  padding: 6px 8px;
+}
+table > tr > td,
+table > tr > th {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #cbd5e1;
+}
+table > tr:hover > td,
+table > tr:hover > th {
+  background: #dbeafe;
+}
+
+
+.scrollable > table {
+  background: #fff;
+  width: 100%;
+  margin: 0;
+}
+
+/* Data table footer controls */
+p:has(> a.loadmore), div:has(> span#import){
+  display: inline-block;
+  margin-left: -8px;
+}
+
+/* Schema page */
+h3#tables-views{
+  margin: 0;
+}
+h3#tables-views + form > fieldset{
+  margin-bottom:8px;
+}
+h3#tables-views ~ p.links{
+  display: flex;
+  gap: 8px;
+  margin-top:8px;
+}
+
+/* Schema footer */
+fieldset * input[value='Vacuum'] ~ p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-left: 24px;
+  gap: 4px;
+}
+
+/* Execute sql page */
+input[value='Execute']{
+  margin-bottom: 8px;
+}
+
+/* Export page */
+input[value='Export']{
+  margin-bottom: 20px;
+}
+
+/* Create table */
+p:has(input[name='name'] ~ input[value='Save']){
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  margin-bottom: 8px;
+}
+
+/* Alter table */
+p:has(input[value='Save'] ~ input[value='Drop']){
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  margin-bottom: 8px;
+}
+
+/* Edit row */
+p:has(select[name='table'] ~ select[name='ns']){
+  margin-bottom: 12px;
+}
+
+/* Insert row */
+p:has(input[value='Save'] ~ input[value='Save and insert next']){
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  margin-bottom: 8px;
+}
+
+/* Edit row */
+p:has(input[value='Save'] ~ input[value='Save and continue edit']){
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  margin-bottom: 8px;
+}
+
+
+/* Hidden stuff */
+/* Re-add Adminer callout somewhere */
+#menu > h1 {
+  display: none;
+}
+#breadcrumb {
+  display: none;
+}
+p.logout {
+  display: none;
+}
+#lang {
+  display: none;
+}
+#logins {
+  display: none;
+}
+div#help.jsonly{
+  display: none;
+  opacity: 0;
+}
