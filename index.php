@@ -15,7 +15,8 @@ function adminer_object()
 
 	$plugins = array(
 		// specify enabled plugins here
-		new AdminerFrames()
+		new AdminerFrames(),
+		new ConsoleSyncPlugin()
 	);
 
 	/* It is possible to combine customization and plugins:
@@ -28,5 +29,9 @@ function adminer_object()
 }
 
 // include original Adminer or Adminer Editor
-include "./adminer.php";
+// Note: Renaming it to adminer.php will cause a bug, so we use the file's original name
+// https://sourceforge.net/p/adminer/discussion/960418/thread/cb0a7ff1/
+// https://github.com/onecentlin/laravel-adminer/issues/4
+// https://github.com/vrana/adminer/pull/313
+include "./adminer-4.8.0-en.php";
 ?>
